@@ -12,7 +12,7 @@ CREATE TABLE Basins (
 CREATE TABLE Definiclineascontorno (
     Map varchar(30) NOT NULL default "",
     StationGroup varchar(20) NOT NULL default "",
-    Variable varchar(15) NOT NULL default "",
+    `Variable` varchar(15) NOT NULL default "",
     period varchar(15) NOT NULL default "",
     maptype varchar(15),
     Colors varchar(15),
@@ -55,11 +55,11 @@ CREATE TABLE Definiclineascontorno (
     NombreHtm varchar(250),
     DescripHtm text,
     WithRivers char(1),
-    PRIMARY KEY  (Map,StationGroup,Variable,period)
+    PRIMARY KEY  (Map,StationGroup,`Variable`,period)
     ) ENGINE=MyISAM;
 CREATE TABLE DisponibDD (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Ndatos int(11),
     BegDate datetime,
     EndDate datetime,
@@ -67,7 +67,7 @@ CREATE TABLE DisponibDD (
     Ndatos2 int(11),
     MedDate datetime,
     Porcen2 double,
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Estacautoma (
     SatelliteID char(8) NOT NULL default "",
@@ -156,12 +156,12 @@ CREATE TABLE stations (
     ) ENGINE=MyISAM;
 CREATE TABLE estacionesinstrum (
     Station char(20) NOT NULL,
-    Variable char(15) NOT NULL,
+    `Variable` char(15) NOT NULL,
     BeginDate datetime NOT NULL,
     elevation double,
     tipo1 char(15),
     Descrip char(120),
-    PRIMARY KEY  (Station,Variable,BeginDate)
+    PRIMARY KEY  (Station,`Variable`,BeginDate)
     ) ENGINE=MyISAM;
 CREATE TABLE metadatastations (
     Station char(20) NOT NULL default "",
@@ -218,7 +218,7 @@ CREATE TABLE Maps (
     ) ENGINE=MyISAM;
 CREATE TABLE MapasCroquis (
     Map char(30) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Userr char(20) NOT NULL default "",
     period char(5) NOT NULL default "",
     Interv1 double NOT NULL default "0",
@@ -233,7 +233,7 @@ CREATE TABLE MapasCroquis (
     Color5 int(11) NOT NULL default "0",
     Interv6 double NOT NULL default "0",
     Color6 int(11) NOT NULL default "0",
-    PRIMARY KEY  (Map,Variable,Userr,period)
+    PRIMARY KEY  (Map,`Variable`,Userr,period)
     ) ENGINE=MyISAM;
 CREATE TABLE mapsstations (
     Map char(30) NOT NULL default "",
@@ -280,8 +280,8 @@ CREATE TABLE MapasGenxCoord (
     ) ENGINE=MyISAM;
 CREATE TABLE mapsgroups (
     Map char(30) NOT NULL default "",
-    Group char(15) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Group` char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Userr char(20) NOT NULL default "",
     period char(5) NOT NULL default "",
     Interv1 double NOT NULL default "0",
@@ -296,7 +296,7 @@ CREATE TABLE mapsgroups (
     Color5 int(11) NOT NULL default "0",
     Interv6 double NOT NULL default "0",
     Color6 int(11) NOT NULL default "0",
-    PRIMARY KEY  (Map,Variable,Userr,period)
+    PRIMARY KEY  (Map,`Variable`,Userr,period)
     ) ENGINE=MyISAM;
 CREATE TABLE MapasMchxCoord (
     Map char(30) NOT NULL default "",
@@ -393,7 +393,7 @@ CREATE TABLE mapasbycoord (
     ) ENGINE=MyISAM;
 CREATE TABLE Mapasxcoordclrs (
     Map char(30) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Userr char(20) NOT NULL default "",
     period char(5) NOT NULL default "",
     Interv1 double,
@@ -420,7 +420,7 @@ CREATE TABLE Mapasxcoordclrs (
     IntInc double,
     IncX double,
     IncY double,
-    PRIMARY KEY  (Map,Variable,Userr,period)
+    PRIMARY KEY  (Map,`Variable`,Userr,period)
     ) ENGINE=MyISAM;
 CREATE TABLE Mapasxcoordgeogr (
     Map char(30) NOT NULL default "",
@@ -459,17 +459,17 @@ CREATE TABLE Counties (
     ) ENGINE=MyISAM;
 CREATE TABLE Opcionesmapasintxxnet (
     Opcion char(15) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Map char(30),
     StationGroup char(20),
     Name char(30),
     stationtype char(15),
-    PRIMARY KEY  (Opcion,Variable)
+    PRIMARY KEY  (Opcion,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Opcxvariabautom (
     Opcion char(15) NOT NULL default "",
     Opcx int(11) NOT NULL default "0",
-    Variable char(15),
+    `Variable` char(15),
     Variable2 char(15),
     PRIMARY KEY  (Opcion,Opcx)
     ) ENGINE=MyISAM;
@@ -482,14 +482,14 @@ CREATE TABLE Recepdefs (
     Opcion char(15) NOT NULL default "",
     Name char(25) NOT NULL default "",
     StationGroup char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
-    PRIMARY KEY  (Opcion,Name,StationGroup,Variable)
+    `Variable` char(15) NOT NULL default "",
+    PRIMARY KEY  (Opcion,Name,StationGroup,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Recepsdatos (
     Opcion char(15) NOT NULL default "",
     Name char(25) NOT NULL default "",
     StationGroup char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Datee datetime NOT NULL default "1901-01-01 00:00:00",
     NumEstac int(11),
     Recep09 int(11),
@@ -499,7 +499,7 @@ CREATE TABLE Recepsdatos (
     RecepSem int(11),
     RecepMes int(11),
     RecepAgno int(11),
-    PRIMARY KEY  (Opcion,Name,StationGroup,Variable,Datee)
+    PRIMARY KEY  (Opcion,Name,StationGroup,`Variable`,Datee)
     ) ENGINE=MyISAM;
 CREATE TABLE Recepsping (
     IPDir char(120) NOT NULL default "",
@@ -569,7 +569,7 @@ CREATE TABLE TransfTables (
 CREATE TABLE Tablaswebconst (
     OpcionCons char(15) NOT NULL default "",
     Opcion char(15),
-    Variable char(15),
+    `Variable` char(15),
     Description char(150),
     BegnDate datetime,
     EndDate datetime,
@@ -593,7 +593,7 @@ CREATE TABLE Tablaswebdef (
 CREATE TABLE tipoEstacionVariable (
     stationtype char(15) NOT NULL,
     Secuen int(11) NOT NULL,
-    Variable char(15),
+    `Variable` char(15),
     PRIMARY KEY  (stationtype,Secuen)
     ) ENGINE=MyISAM;
 CREATE TABLE Transftp (
@@ -607,7 +607,7 @@ CREATE TABLE Transmchamch (
     OpcionTrans char(30) NOT NULL default "",
     StationGroup char(20) NOT NULL default "",
     Secuenc int(11) NOT NULL default "0",
-    Variable char(15),
+    `Variable` char(15),
     Tipo char(2),
     Active char(2),
     PRIMARY KEY  (OpcionTrans,StationGroup,Secuenc)
@@ -633,39 +633,39 @@ CREATE TABLE typeusers (
     ) ENGINE=MyISAM;
 CREATE TABLE validdata (
     Station char(20) NOT NULL,
-    Variable char(15) NOT NULL,
-    Data char(1) NOT NULL,
+    `Variable` char(15) NOT NULL,
+    `Data` char(1) NOT NULL,
     Datee date NOT NULL default "1901-01-01",
     EndDate date,
     IniHour time,
     EndHour time,
-    MinValue double,
+    `MinValue` double,
     alert1min double,
     alert2min double,
     alert2max double,
     alert1max double,
-    MaxValue double,
+    `MaxValue` double,
     Variac double,
     Minutes int(11),
-    PRIMARY KEY  (Station,Variable,Data,Datee)
+    PRIMARY KEY  (Station,`Variable`,`Data`,Datee)
     ) ENGINE=MyISAM;
 CREATE TABLE Valsvariabaut (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     Adjust1 double NOT NULL default "0",
     Adjust2 double NOT NULL default "0",
-    MaxValue double,
-    MinValue double,
+    `MaxValue` double,
+    `MinValue` double,
     ValorNoHayDato double,
     CriticoArriba double,
     CriticoAbajo double,
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Variabautomatv (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     period int(11),
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Variabautomaxfecha (
     SatelliteID char(8) NOT NULL default "",
@@ -673,24 +673,24 @@ CREATE TABLE Variabautomaxfecha (
     Secuen int(11) NOT NULL default "0",
     Area char(15),
     Name char(30),
-    Variable char(15),
+    `Variable` char(15),
     period int(11),
     PRIMARY KEY  (SatelliteID,DateTime,Secuen)
     ) ENGINE=MyISAM;
 CREATE TABLE VariabDeriv2 (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     FormCalculo text,
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE VariabDeriv3 (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     FormCalculo text,
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
-CREATE TABLE Variables (
-    Variable char(15) NOT NULL default "",
+CREATE TABLE `Variables` (
+    `Variable` char(15) NOT NULL default "",
     ShortName char(4),
     DescripVariab char(150),
     TableName char(15),
@@ -700,11 +700,11 @@ CREATE TABLE Variables (
     NDecim int(11),
     CalcxGrp char(8),
     CalcDTaD char(8),
-    PRIMARY KEY  (Variable)
+    PRIMARY KEY  (`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Variablestransf (
     Station char(20) NOT NULL default "",
-    Variable char(15) NOT NULL default "",
+    `Variable` char(15) NOT NULL default "",
     BegnDate datetime NOT NULL default "1901-01-01 00:00:00",
     Adjust1 double NOT NULL default "0",
     Adjust2 double NOT NULL default "0",
@@ -716,25 +716,25 @@ CREATE TABLE Variablestransf (
     TablaTransf3 char(15),
     VariabTransf4 char(20),
     TablaTransf4 char(15),
-    PRIMARY KEY  (Station,Variable,BegnDate)
+    PRIMARY KEY  (Station,`Variable`,BegnDate)
     ) ENGINE=MyISAM;
 CREATE TABLE VerifCerca (
     Station char(20) NOT NULL,
-    Variable char(15) NOT NULL,
+    `Variable` char(15) NOT NULL,
     Distance double,
     difaltura double,
     StationGroup char(20),
     variacion double,
     intervmin int(11),
-    PRIMARY KEY  (Station,Variable)
+    PRIMARY KEY  (Station,`Variable`)
     ) ENGINE=MyISAM;
 CREATE TABLE Verific (
-    Variable char(15) NOT NULL,
-    Data char(1) NOT NULL,
+    `Variable` char(15) NOT NULL,
+    `Data` char(1) NOT NULL,
     Secuen int(11) NOT NULL,
     Tipo char(1),
     Verif text,
-    PRIMARY KEY  (Variable,Data,Secuen)
+    PRIMARY KEY  (`Variable`,`Data`,Secuen)
     ) ENGINE=MyISAM;
 CREATE TABLE Webbitacoraproc (
     Tally int(11) NOT NULL auto_increment,
