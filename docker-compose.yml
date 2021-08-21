@@ -1,0 +1,56 @@
+version: "3"
+
+services:
+  clide:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile.clide
+    container_name: clide_db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+
+  climsoft:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile.climsoft
+    container_name: climsoft_db
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  mch:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile.mch
+    container_name: mch_db
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+  midas:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile.midas
+    container_name: midas_db
+    ports:
+      - 1521:1521
+      - 5500:5500
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
+
+  wmdr:
+    build:
+      context: .
+      dockerfile: ./containers/Dockerfile.wmdr
+    container_name: wmdr_db
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+
+
+
