@@ -7,6 +7,11 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile
     container_name: opencdms-db
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+
 
   # A PostgreSQL instance containing schemas from CDMSs that use PostgreSQL (currently clide and wmdr)
   postgresql:
@@ -14,20 +19,33 @@ services:
       context: .
       dockerfile: ./docker/groups/Dockerfile.postgresql
     container_name: postgresql
+    ports:
+      - 25432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+
 
   # A MariaDB instance containing schemas from CDMSs that use MySQL/MariaDB (currently climsoft-4.1.1 and mch-english)
-  mariadb:
+  mysql:
     build:
       context: .
-      dockerfile: ./docker/groups/Dockerfile.mariadb
-    container_name: mariadb
+      dockerfile: ./docker/groups/Dockerfile.mysql
+    container_name: mysql
+    ports:
+      - 23306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
 
   # An Oracle Express Edition instance containing schemas from CDMSs that use Oracle (currently midas-core)
-  oracle-xe:
+  oracle:
     build:
       context: .
-      dockerfile: ./docker/groups/Dockerfile.oracle-xe
-    container_name: oracle-xe
+      dockerfile: ./docker/groups/Dockerfile.oracle
+    container_name: oracle
+    ports:
+      - 21521:1521
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
 
   # A PostgreSQL 13 instance containing the clide schema (comparable to how CliDE is used in production)
   clide:
@@ -36,7 +54,7 @@ services:
       dockerfile: ./docker/Dockerfile.clide
     container_name: clide
     ports:
-      - 5432:5432
+      - 35432:5432
     environment:
       - POSTGRES_PASSWORD=password
 
@@ -47,7 +65,7 @@ services:
       dockerfile: ./docker/Dockerfile.climsoft-4.1.1
     container_name: climsoft-4.1.1
     ports:
-      - 3306:3306
+      - 33308:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
 
@@ -58,9 +76,20 @@ services:
       dockerfile: ./docker/Dockerfile.mch-english
     container_name: mch-english
     ports:
-      - 3307:3306
+      - 33306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
+
+  # An Oracle Express Edition instance containing schemas from CDMSs that use Oracle (currently midas-core)
+  midas:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.midas
+    container_name: midas
+    ports:
+      - 31521:1521
+    environment:
+      - ORACLE_ALLOW_REMOTE=true
 
   # A TimescaleDB / PostGIS instance containing the wmdr schema
   wmdr:
@@ -69,7 +98,7 @@ services:
       dockerfile: ./docker/Dockerfile.wmdr
     container_name: wmdr
     ports:
-      - 5433:5432
+      - 35433:5432
     environment:
       - POSTGRES_PASSWORD=password
 
