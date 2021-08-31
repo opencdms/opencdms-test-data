@@ -1,3 +1,2 @@
-FROM oracleinanutshell/oracle-xe-11g
-
+FROM opencdms/oracle-xe-11g
 COPY ./schemas/midas/midas_core_ddl.sql /docker-entrypoint-initdb.d/1.sql
