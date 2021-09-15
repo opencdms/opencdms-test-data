@@ -53,7 +53,7 @@ def teardown_module(module):
     os.remove(DB_URL)
 
 
-@pytest.mark.order(1)
+@pytest.mark.order(300)
 def test_should_create_a_station():
     station = djangodemo.models.Station(**station_data)
     station.save()
@@ -61,7 +61,7 @@ def test_should_create_a_station():
     assert station.stationid == station_data['stationid']
 
 
-@pytest.mark.order(2)
+@pytest.mark.order(301)
 def test_should_read_all_stations():
     stations = djangodemo.models.Station.objects.all()
 
@@ -69,14 +69,14 @@ def test_should_read_all_stations():
         assert isinstance(station, djangodemo.models.Station)
 
 
-@pytest.mark.order(3)
+@pytest.mark.order(302)
 def test_should_return_a_single_station():
     station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
 
     assert station.stationid == station_data['stationid']
 
 
-@pytest.mark.order(4)
+@pytest.mark.order(303)
 def test_should_update_station():
     station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
     station.country = 'Italy'
@@ -85,12 +85,12 @@ def test_should_update_station():
     assert station.country == 'Italy'
 
 
-@pytest.mark.order(5)
+@pytest.mark.order(304)
 def test_should_delete_station():
     station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
     station.delete()
 
-    with pytest.raises(djangodemo.metadata.Station.DoesNotExist):
+    with pytest.raises(djangodemo.models.Station.DoesNotExist):
         djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
 
 
