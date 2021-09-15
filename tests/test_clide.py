@@ -36,7 +36,7 @@ def teardown_module(module):
     clide.Base.metadata.drop_all(db_engine)
 
 
-@pytest.mark.order(1)
+@pytest.mark.order(100)
 def test_should_create_a_station(db_session):
     station = clide.Station(**station_data)
     db_session.add(station)
@@ -45,7 +45,7 @@ def test_should_create_a_station(db_session):
     assert station.id == station_data['id']
 
 
-@pytest.mark.order(2)
+@pytest.mark.order(101)
 def test_should_read_all_stations(db_session):
     stations = db_session.query(clide.Station).all()
 
@@ -53,14 +53,14 @@ def test_should_read_all_stations(db_session):
         assert isinstance(station, clide.Station)
 
 
-@pytest.mark.order(3)
+@pytest.mark.order(102)
 def test_should_return_a_single_station(db_session):
     station = db_session.query(clide.Station).get(station_data['id'])
 
     assert station.id == station_data['id']
 
 
-@pytest.mark.order(4)
+@pytest.mark.order(103)
 def test_should_update_station(db_session):
     db_session.query(clide.Station).get(station_data['id']).update(region='Italy')
     db_session.commit()
@@ -70,7 +70,7 @@ def test_should_update_station(db_session):
     assert updated_station.region == 'Italy'
 
 
-@pytest.mark.order(5)
+@pytest.mark.order(104)
 def test_should_delete_station(db_session):
     db_session.query(clide.Station).get(station_data['id']).delete()
     db_session.commit()
