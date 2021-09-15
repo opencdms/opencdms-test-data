@@ -4,10 +4,10 @@ import pytest
 import random
 from django.conf import settings
 from django.core.management import execute_from_command_line
-from opencdms.models.djangodemo import models as djangodemo
+import opencdms.models.djangodemo as djangodemo
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_URL = os.path.join(BASE_DIR, "tests/djangodemo.db")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_URL = os.path.join(BASE_DIR, "djangodemo.db")
 
 station_data = dict(
     stationid=str(random.randint(1000, 2000)),
@@ -54,10 +54,44 @@ def teardown_module(module):
 
 
 @pytest.mark.order(1)
-def test_should_return_same_station_ids():
-    station = djangodemo.Station(**station_data)
+def test_should_create_a_station():
+    station = djangodemo.models.Station(**station_data)
     station.save()
 
     assert station.stationid == station_data['stationid']
+
+
+@pytest.mark.order(2)
+def test_should_read_all_stations():
+    stations = djangodemo.models.Station.objects.all()
+
+    for station in stations:
+        assert isinstance(station, djangodemo.models.Station)
+
+
+@pytest.mark.order(3)
+def test_should_return_a_single_station():
+    station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
+
+    assert station.stationid == station_data['stationid']
+
+
+@pytest.mark.order(4)
+def test_should_update_station():
+    station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
+    station.country = 'Italy'
+    station.save()
+
+    assert station.country == 'Italy'
+
+
+@pytest.mark.order(5)
+def test_should_delete_station():
+    station = djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
+    station.delete()
+
+    with pytest.raises(djangodemo.metadata.Station.DoesNotExist):
+        djangodemo.models.Station.objects.get(stationid=station_data['stationid'])
+
 
 
