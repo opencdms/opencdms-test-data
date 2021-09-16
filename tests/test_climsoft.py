@@ -5,7 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from opencdms.models.climsoft import v4_1_1_core as climsoft
 
-DB_URL = "sqlite:///climsoft.db"
+# DB_URL = "sqlite:///climsoft.db"
+DB_URL = 'mysql+mysqldb://root:password@127.0.0.1/climsoft'
 
 db_engine = create_engine(DB_URL)
 

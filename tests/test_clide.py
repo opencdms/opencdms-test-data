@@ -6,7 +6,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from opencdms.models import clide
 
-DB_URL = "sqlite:///clide.db"
+# DB_URL = "sqlite:///clide.db"
+DB_URL = 'postgresql+psycopg2://postgres:password@127.0.0.1/postgres'
+
 
 db_engine = create_engine(DB_URL)
 
