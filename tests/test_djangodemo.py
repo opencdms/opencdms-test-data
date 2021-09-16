@@ -21,8 +21,14 @@ def setup_module(module):
         settings.configure(
             DATABASES={
                 "default": {
-                    "ENGINE": "django.db.backends.sqlite3",
-                    "NAME": DB_URL,
+                    # "ENGINE": "django.db.backends.sqlite3",
+                    "ENGINE": "django.db.backends.postgresql_psycopg2",
+                    # "NAME": DB_URL,
+                    "NAME": "postgres",
+                    "USER": "postgres",
+                    "PASSWORD": "password",
+                    "HOST": "127.0.0.1",
+                    "PORT": "5432"
                 }
             },
             DEFAULT_AUTO_FIELD="django.db.models.AutoField",
@@ -50,7 +56,8 @@ def setup_module(module):
 
 
 def teardown_module(module):
-    os.remove(DB_URL)
+    # os.remove(DB_URL)
+    pass
 
 
 @pytest.mark.order(300)
