@@ -21,14 +21,14 @@ def setup_module(module):
         settings.configure(
             DATABASES={
                 "default": {
-                    # "ENGINE": "django.db.backends.sqlite3",
-                    "ENGINE": "django.db.backends.postgresql_psycopg2",
-                    # "NAME": DB_URL,
-                    "NAME": "postgres",
-                    "USER": "postgres",
-                    "PASSWORD": "password",
-                    "HOST": "127.0.0.1",
-                    "PORT": "5432"
+                    "ENGINE": "django.db.backends.sqlite3",
+                    # "ENGINE": "django.db.backends.postgresql_psycopg2",
+                    "NAME": DB_URL,
+                    # "NAME": "postgres",
+                    # "USER": "postgres",
+                    # "PASSWORD": "password",
+                    # "HOST": "127.0.0.1",
+                    # "PORT": "5432"
                 }
             },
             DEFAULT_AUTO_FIELD="django.db.models.AutoField",
