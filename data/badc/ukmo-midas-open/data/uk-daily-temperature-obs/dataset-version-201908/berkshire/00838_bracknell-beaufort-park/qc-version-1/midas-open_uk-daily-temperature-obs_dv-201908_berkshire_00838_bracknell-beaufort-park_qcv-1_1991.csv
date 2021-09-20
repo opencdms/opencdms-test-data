@@ -30,7 +30,7 @@ type,id_type,char
 comments,id_type,a station may have more than one id assigned to it defined by id_type
 long_name,id,station identifier,1
 type,id,char
-comments,id,a station may have more than one id assigned to it 
+comments,id,a station may have more than one id assigned to it
 long_name,ob_hour_count,observation hour count,hours
 type,ob_hour_count,int
 comments,ob_hour_count,number of hours the observation period spans
