@@ -3,21 +3,34 @@ import uuid
 import random
 import pytest
 from sqlalchemy import create_engine
+from sqlalchemy.sql import text as sa_text
 from sqlalchemy.orm import sessionmaker
 from opencdms.models import clide
 
-# DB_URL = "sqlite:///clide.db"
-DB_URL = 'postgresql+psycopg2://postgres:password@127.0.0.1/postgres'
+DB_URL = 'postgresql+psycopg2://postgres:password@127.0.0.1:35432/postgres'
 
 
 db_engine = create_engine(DB_URL)
 
+station_status_data = dict(
+    id=1,
+    status="ACTIVE",
+    description="test station status 1"
+)
+
+timezone_data = dict(
+    id=1,
+    tm_zone="UTC",
+    utc_diff=0,
+    description="UTC timezone"
+)
+
 station_data = dict(
     id=random.randint(1000, 2000),
     station_no=uuid.uuid4().hex[:15],
-    status_id=random.randint(1, 5),
-    time_zone=random.randint(1, 180),
-    region='France'
+    status_id=station_status_data["id"],
+    time_zone=timezone_data["tm_zone"],
+    region='UK'
 )
 
 
@@ -30,12 +43,28 @@ def db_session():
 
 
 def setup_module(module):
-    clide.Base.metadata.drop_all(db_engine)
-    clide.Base.metadata.create_all(db_engine)
+    with db_engine.connect() as connection:
+        with connection.begin():
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.Station.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.StationStatu.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.StationTimezone.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
+
+    Session = sessionmaker(bind=db_engine)
+    session = Session()
+
+    session.add(clide.StationStatu(**station_status_data))
+    session.add(clide.StationTimezone(**timezone_data))
+
+    session.commit()
+    session.close()
 
 
 def teardown_module(module):
-    clide.Base.metadata.drop_all(db_engine)
+    with db_engine.connect() as connection:
+        with connection.begin():
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.Station.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.StationStatu.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
+            db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.StationTimezone.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
 
 
 @pytest.mark.order(100)
@@ -64,17 +93,17 @@ def test_should_return_a_single_station(db_session):
 
 @pytest.mark.order(103)
 def test_should_update_station(db_session):
-    db_session.query(clide.Station).get(station_data['id']).update(region='Italy')
+    db_session.query(clide.Station).filter_by(id=station_data['id']).update({'region': 'US'})
     db_session.commit()
 
     updated_station = db_session.query(clide.Station).get(station_data['id'])
 
-    assert updated_station.region == 'Italy'
+    assert updated_station.region == 'US'
 
 
 @pytest.mark.order(104)
 def test_should_delete_station(db_session):
-    db_session.query(clide.Station).get(station_data['id']).delete()
+    db_session.query(clide.Station).filter_by(id=station_data['id']).delete()
     db_session.commit()
 
     deleted_station = db_session.query(clide.Station).get(station_data['id'])
