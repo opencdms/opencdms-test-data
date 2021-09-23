@@ -1,8 +1,6 @@
 import random
-
 import pytest
 from sqlalchemy import create_engine
-from sqlalchemy.sql import text as sa_text
 from sqlalchemy.orm import sessionmaker
 from opencdms.models.climsoft import v4_1_1_core as climsoft
 
@@ -33,15 +31,6 @@ def setup_module(module):
             connection.execute(table.delete())
         connection.execute('SET FOREIGN_KEY_CHECKS = 1;')
         trans.commit()
-
-    # Session = sessionmaker(bind=db_engine)
-    # session = Session()
-    #
-    # session.add(climsoft.StationStatu(**station_status_data))
-    # session.add(clide.StationTimezone(**timezone_data))
-    #
-    # session.commit()
-    # session.close()
 
 
 def teardown_module(module):

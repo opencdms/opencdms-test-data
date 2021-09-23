@@ -1,4 +1,3 @@
-import os
 import uuid
 import random
 import pytest
@@ -43,6 +42,7 @@ def db_session():
 
 
 def setup_module(module):
+    # Postgresql does not automatically reset ID if a table is truncated like mysql does
     with db_engine.connect() as connection:
         with connection.begin():
             db_engine.execute(sa_text(f'''TRUNCATE TABLE {clide.Station.__tablename__} RESTART IDENTITY CASCADE''').execution_options(autocommit=True))
