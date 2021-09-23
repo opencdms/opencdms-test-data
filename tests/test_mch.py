@@ -1,10 +1,12 @@
+import os
+
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from opencdms.models.mch import english as mch_english
 from config import get_mch_english_connection_string
 
-DB_URL = get_mch_english_connection_string(use_mysql_container=True)
+DB_URL = get_mch_english_connection_string(port_override=os.getenv("MYSQL_PORT"))
 
 db_engine = create_engine(DB_URL)
 
