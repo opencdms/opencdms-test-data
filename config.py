@@ -33,14 +33,14 @@ def get_climsoft_4_1_1_connection_string() -> str:
     )
 
 
-def get_mch_english_connection_string(use_mysql_container: bool = False) -> str:
+def get_mch_english_connection_string(port_override: str = None) -> str:
     return get_connection_string(
         engine="mysql",
         driver="mysqldb",
         user="root",
         password="password",
         host="127.0.0.1",
-        port=os.getenv("MCH_ENGLISH_PORT") if not use_mysql_container else os.getenv("MYSQL_PORT"),
+        port=os.getenv("MCH_ENGLISH_PORT") if port_override is None else port_override,
         db_name=os.getenv("MCH_DB_NAME")
     )
 
