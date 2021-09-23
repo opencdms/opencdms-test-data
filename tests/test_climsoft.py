@@ -3,8 +3,9 @@ import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from opencdms.models.climsoft import v4_1_1_core as climsoft
+from config import get_climsoft_4_1_1_connection_string
 
-DB_URL = 'mysql+mysqldb://root:password@127.0.0.1:33308/mariadb_climsoft_db_v4'
+DB_URL = get_climsoft_4_1_1_connection_string()
 
 db_engine = create_engine(DB_URL)
 
