@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from opencdms.models.mch import english as mch_english
 
-DB_URL = 'mysql+mysqldb://root:password@127.0.0.1:33306/mch_english'
+DB_URL = 'mysql+mysqldb://root:password@127.0.0.1:23306/mch_english'
 
 db_engine = create_engine(DB_URL)
 
@@ -41,7 +41,7 @@ def teardown_module(module):
         trans.commit()
 
 
-@pytest.mark.order(200)
+@pytest.mark.order(400)
 def test_should_create_a_station(db_session):
     station = mch_english.Station(**station_data)
     db_session.add(station)
@@ -50,7 +50,7 @@ def test_should_create_a_station(db_session):
     assert station.Station == station_data['Station']
 
 
-@pytest.mark.order(201)
+@pytest.mark.order(401)
 def test_should_read_all_stations(db_session):
     stations = db_session.query(mch_english.Station).all()
 
@@ -58,14 +58,14 @@ def test_should_read_all_stations(db_session):
         assert isinstance(station, mch_english.Station)
 
 
-@pytest.mark.order(202)
+@pytest.mark.order(402)
 def test_should_return_a_single_station(db_session):
     station = db_session.query(mch_english.Station).get(station_data['Station'])
 
     assert station.Station == station_data['Station']
 
 
-@pytest.mark.order(203)
+@pytest.mark.order(403)
 def test_should_update_station(db_session):
     db_session.query(mch_english.Station).filter_by(Station=station_data['Station']).update({'StationName': 'Updated Station Name'})
     db_session.commit()
@@ -75,7 +75,7 @@ def test_should_update_station(db_session):
     assert updated_station.StationName == 'Updated Station Name'
 
 
-@pytest.mark.order(204)
+@pytest.mark.order(404)
 def test_should_delete_station(db_session):
     db_session.query(mch_english.Station).filter_by(Station=station_data['Station']).delete()
     db_session.commit()
