@@ -36,3 +36,120 @@ def test_should_return_hourly_wind_obs(session):
         )
     ).seconds == 3600
 
+
+def test_should_return_hourly_rain_prcp_amt_obs(session):
+    filters = {
+        'src_id': 838,
+        'period': 'hourly',
+        'year': 1991,
+        'elements': ['prcp_amt'],
+    }
+
+    obs = session.obs(**filters)
+
+    assert isinstance(obs, pandas.DataFrame)
+
+    assert (
+        datetime.datetime.strptime(
+            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+        -
+        datetime.datetime.strptime(
+            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+    ).seconds == 3600
+
+
+def test_should_return_daily_rain_prcp_amt_obs(session):
+    filters = {
+        'src_id': 838,
+        'period': 'daily',
+        'year': 1991,
+        'elements': ['prcp_amt'],
+    }
+
+    obs = session.obs(**filters)
+
+    assert isinstance(obs, pandas.DataFrame)
+
+    assert (
+        datetime.datetime.strptime(
+            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+        -
+        datetime.datetime.strptime(
+            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+    ).seconds == 3600 * 24
+
+
+def test_should_return_daily_temperature_obs(session):
+    filters = {
+        'src_id': 838,
+        'period': 'daily',
+        'year': 1991,
+        'elements': ['max_air_temp', 'min_air_temp'],
+    }
+
+    obs = session.obs(**filters)
+
+    assert isinstance(obs, pandas.DataFrame)
+
+    assert (
+        datetime.datetime.strptime(
+            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+        -
+        datetime.datetime.strptime(
+            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+    ).seconds == 3600 * 24
+
+
+def test_should_return_daily_radiation_obs(session):
+    filters = {
+        'src_id': 838,
+        'period': 'daily',
+        'year': 1991,
+        'elements': ['glbl_irad_amt', 'difu_irad_amt'],
+    }
+
+    obs = session.obs(**filters)
+
+    assert isinstance(obs, pandas.DataFrame)
+
+    assert (
+        datetime.datetime.strptime(
+            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+        -
+        datetime.datetime.strptime(
+            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+    ).seconds == 3600 * 24
+
+
+def test_should_return_daily_soil_temperature_obs(session):
+    filters = {
+        'src_id': 838,
+        'period': 'daily',
+        'year': 1991,
+        'elements': ['q5cm_soil_temp', 'q10cm_soil_temp'],
+    }
+
+    obs = session.obs(**filters)
+
+    assert isinstance(obs, pandas.DataFrame)
+
+    assert (
+        datetime.datetime.strptime(
+            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+        -
+        datetime.datetime.strptime(
+            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+        )
+    ).seconds == 3600 * 24
+
+
+
