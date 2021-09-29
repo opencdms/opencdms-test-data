@@ -51,11 +51,11 @@ def test_should_return_hourly_rain_prcp_amt_obs(session):
 
     assert (
         datetime.datetime.strptime(
-            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[1]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
         -
         datetime.datetime.strptime(
-            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[0]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
     ).seconds == 3600
 
@@ -74,11 +74,11 @@ def test_should_return_daily_rain_prcp_amt_obs(session):
 
     assert (
         datetime.datetime.strptime(
-            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[1]["ob_date"], '%Y-%m-%d %H:%M:%S'
         )
         -
         datetime.datetime.strptime(
-            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[0]["ob_date"], '%Y-%m-%d %H:%M:%S'
         )
     ).seconds == 3600 * 24
 
@@ -97,11 +97,11 @@ def test_should_return_daily_temperature_obs(session):
 
     assert (
         datetime.datetime.strptime(
-            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[1]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
         -
         datetime.datetime.strptime(
-            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[0]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
     ).seconds == 3600 * 24
 
@@ -120,11 +120,11 @@ def test_should_return_daily_radiation_obs(session):
 
     assert (
         datetime.datetime.strptime(
-            obs.iloc[1]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[1]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
         -
         datetime.datetime.strptime(
-            obs.iloc[0]["ob_time"], '%Y-%m-%d %H:%M:%S'
+            obs.iloc[0]["ob_end_time"], '%Y-%m-%d %H:%M:%S'
         )
     ).seconds == 3600 * 24
 
