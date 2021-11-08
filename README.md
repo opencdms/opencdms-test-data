@@ -27,12 +27,27 @@ There are three ways to test OpenCDMS with a database:
    - `postgresql`, `mysql`, `oracle` should be used when you want to use the same database technology
    that is used by respective CDMS in production. We have already created `Dockerfile`s for these services in `docker/groups` with proper instructions to create same table structure for respective CDMSs as used in production.
    - `clide`, `climsoft-4.1.1`, `mch-english`, `midas`, `wmdr` are the dedicated instances for respective CDMS. If you want to instantiate a specific CDMS, you should use one of these services.
+   
+   **Port Mapping**
+   
+   | Service | Port |
+   |---------|------|
+   | opencdms-db | 15432 |
+   | postgresql | 25432 |
+   | mysql | 23306 |
+   | oracle | 21521 |
+   | clide | 35432 |
+   | climsoft-4.1.1 | 3308 |
+   | mch-english | 3306 |
+   | midas | 31521 |
+   | wmdr | 35433 |
+   
 
 2. Testing with a single database technology (standard)
 
     The `pyopencdms` library allows developers to initialise data models for any of the supported systems in any of the supported database systems (allowing developers to install and use a single database system). Using a different underlying database technology will most likely prevent you from using SQL to perform operations like restore commands, but otherwise interaction can be achieved through the `pyopencmds` Python API.
 
-4. Testing with SQLlite / SpatialLite (easy)
+3. Testing with SQLlite / SpatialLite (easy)
 
     The final option does not require you to install any database system and instead uses the lightweight SQLite option. By default, when automated unit tests run a temporary in-memory SQLite database is used. Developers do not need to install any database software.
 
