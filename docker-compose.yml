@@ -8,7 +8,7 @@ services:
       dockerfile: ./docker/Dockerfile
     container_name: opencdms-db
     ports:
-      - 15432:5432
+      - "15432:5432"
     environment:
       - POSTGRES_PASSWORD=password
 
@@ -20,7 +20,7 @@ services:
       dockerfile: ./docker/groups/Dockerfile.postgresql
     container_name: postgresql
     ports:
-      - 25432:5432
+      - "25432:5432"
     environment:
       - POSTGRES_PASSWORD=password
 
@@ -32,7 +32,7 @@ services:
       dockerfile: ./docker/groups/Dockerfile.mysql
     container_name: mysql
     ports:
-      - 23306:3306
+      - "23306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
 
@@ -43,7 +43,7 @@ services:
       dockerfile: ./docker/groups/Dockerfile.oracle
     container_name: oracle
     ports:
-      - 21521:1521
+      - "21521:1521"
     environment:
       - ORACLE_ALLOW_REMOTE=true
 
@@ -54,7 +54,7 @@ services:
       dockerfile: ./docker/Dockerfile.clide
     container_name: clide
     ports:
-      - 35432:5432
+      - "35432:5432"
     environment:
       - POSTGRES_PASSWORD=password
 
@@ -65,20 +65,21 @@ services:
       dockerfile: ./docker/Dockerfile.climsoft-4.1.1
     container_name: climsoft-4.1.1
     ports:
-      - 33308:3306
+      - "33308:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
 
-  # MySQL 5.1.17 instance containing the mch-english schema (comparable to how MCH is used in production)
+  # Latest MariaDB instance containing the mch-english schema (comparable to how MCH is used in production)
   mch-english:
     build:
       context: .
       dockerfile: ./docker/Dockerfile.mch-english
     container_name: mch-english
     ports:
-      - 33306:3306
+      - "33306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=root
 
   # An Oracle Express Edition instance containing schemas from CDMSs that use Oracle (currently midas-core)
   midas:
@@ -87,7 +88,7 @@ services:
       dockerfile: ./docker/Dockerfile.midas
     container_name: midas
     ports:
-      - 31521:1521
+      - "31521:1521"
     environment:
       - ORACLE_ALLOW_REMOTE=true
 
@@ -98,7 +99,7 @@ services:
       dockerfile: ./docker/Dockerfile.wmdr
     container_name: wmdr
     ports:
-      - 35433:5432
+      - "35433:5432"
     environment:
       - POSTGRES_PASSWORD=password
 
