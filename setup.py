@@ -10,5 +10,6 @@ setup(
     url='https://github.com/opencdms/opencdms-test-data',
     packages=find_packages(include=["opencdms_test_data", "opencdms_test_data.*"]),
     include_package_data=True,
-    package_data={"": ["*.csv"]}
+    zip_safe=False,
+    package_data={'': ["*.csv"]}
 )
