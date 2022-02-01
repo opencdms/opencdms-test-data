@@ -1,1 +1,1 @@
-recursive-include data/ *
+recursive-include opencdms_test_data/data/ *
