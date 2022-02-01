@@ -8,7 +8,7 @@ setup(
     author='OpenCDMS',
     author_email='info@opencdms.org',
     url='https://github.com/opencdms/opencdms-test-data',
-    packages=find_packages(include=["opencdms_test_data", "data", "data.*"]),
+    packages=find_packages(include=["opencdms_test_data", "data"]),
     include_package_data=True,
-    package_data={'': ["*.csv"]}
+    package_data={'': ["data/*.csv"]}
 )
