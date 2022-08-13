@@ -4,7 +4,7 @@ The dataset is currently based on a dataset with complete metadata provided by t
 
 The dataset is initially being used with the OpenCDMS Python Data Management API ([pyopencdms](https://github.com/opencdms/pyopencdms)) and supported Web APIs ([opencdms-api](https://github.com/opencdms/opencdms-api)).
 
-Table descriptions are below. See [2020-12-04_comments.sql](https://github.com/opencdms/opencdms-test-data/blob/main/opencdms_test_data/data/opencdms/2020-12-04_comments.sql) for both table and column comments.
+Table descriptions are below. See [2020-12-04_comments.sql](https://github.com/opencdms/opencdms-test-data/blob/main/opencdms_test_data/data/opencdms/2020-12-04_comments.sql) for both table and column comments. These were lost in the translation from Oracle EE -> Oracle XE -> Postgres
 
 ---
 
