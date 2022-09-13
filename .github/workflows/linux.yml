@@ -34,7 +34,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install libpq-dev
-          sudo apt-get build-essential
+          sudo apt-get install build-essential
       - name: Installs python requirements
         run: pip3 install -r requirements_dev.txt
 
