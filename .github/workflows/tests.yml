@@ -31,6 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Installs necessary dependencies
+        if: always()
         run: pip3 install -r requirements_dev.txt
 
       # Runs a set of commands using the runners shell
