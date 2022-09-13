@@ -16,7 +16,7 @@ jobs:
   matrix-setup:
     strategy:
       matrix:
-        os: [ubuntu-latest,windows-latest,macos-latest]
+        os: [windows-latest,macos-latest,ubuntu-latest]
         py-version: ['3.7','3.8','3.9','3.10','3.11']
     runs-on: ${{matrix.os}}
 
@@ -31,7 +31,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Installs necessary dependencies
-        if: always()
         run: pip3 install -r requirements_dev.txt
 
       # Runs a set of commands using the runners shell
