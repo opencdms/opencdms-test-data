@@ -9,6 +9,8 @@ from config import get_clide_connection_string
 
 DB_URL = get_clide_connection_string()
 
+print("THIS IS DB URL",DB_URL)
+
 
 db_engine = create_engine(DB_URL)
 
