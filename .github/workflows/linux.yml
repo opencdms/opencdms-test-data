@@ -43,7 +43,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Runs tests
         run: |
-          docker-compose -f "docker-compose.yml" up -d --build
+          sudo docker-compose -f "docker-compose.yml" up -d --build
           pytest tests
       - name: Clean up
         run: docker-compose down
