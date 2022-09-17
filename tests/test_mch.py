@@ -8,7 +8,10 @@ from config import get_mch_english_connection_string
 
 DB_URL = get_mch_english_connection_string(port_override=os.getenv("MYSQL_PORT"))
 
+print("DATABASE URL", DB_URL)
+
 db_engine = create_engine(DB_URL)
+
 
 station_data = dict(
     Station='TEST',
@@ -29,6 +32,7 @@ def setup_module(module):
         trans = connection.begin()
         connection.execute('SET FOREIGN_KEY_CHECKS = 0;')
         for table in mch_english.metadata.sorted_tables:
+            print("DELETING TABLES",table)
             connection.execute(table.delete())
         connection.execute('SET FOREIGN_KEY_CHECKS = 1;')
         trans.commit()
