@@ -35,8 +35,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install libpq-dev
           sudo apt-get install build-essential
-          sudo apt-get install -y docker
-          sudo apt-get install -y docker-compose
       - name: Installs python requirements
         run: pip3 install -r requirements_dev.txt
 
@@ -44,8 +42,7 @@ jobs:
       - name: Runs tests
         run: |
           sudo chmod 666 /var/run/docker.sock
-          sudo systemctl start docker
-          sudo docker-compose -f "docker-compose.yml" up -d --build
+          docker-compose up -d
           pytest tests
       - name: Clean up
         run: docker-compose down
