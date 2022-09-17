@@ -35,9 +35,15 @@ jobs:
           sudo apt-get update
           sudo apt-get install libpq-dev
           sudo apt-get install build-essential
+          sudo apt-get install -y docker
+          sudo apt-get install -y docker-compose
       - name: Installs python requirements
         run: pip3 install -r requirements_dev.txt
 
       # Runs a set of commands using the runners shell
       - name: Runs tests
-        run: pytest tests
+        run: |
+          docker-compose up -d
+          pytest tests
+      - name: Clean up
+        run: docker-compose down
