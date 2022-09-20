@@ -1,4 +1,5 @@
-use mysql;
+/* use mysql; */
+
 
 CREATE TABLE Codes(
     Codee char(10) NOT NULL default "",

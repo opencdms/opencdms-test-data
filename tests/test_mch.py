@@ -8,7 +8,6 @@ from config import get_mch_english_connection_string
 
 DB_URL = get_mch_english_connection_string(port_override=os.getenv("MYSQL_PORT"))
 
-print("DATABASE URL", DB_URL)
 
 db_engine = create_engine(DB_URL)
 

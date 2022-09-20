@@ -3,4 +3,6 @@ COPY ./schemas/climsoft/v4/v4.1.1/climsoft_v4_all.sql /docker-entrypoint-initdb.
 COPY ./opencdms_test_data/data/climsoft/climsoft-db-dummy-data.sql /docker-entrypoint-initdb.d/2.sql
 COPY ./scripts/entrypoints/mch-english.sql /tmp/settings.sql
 COPY ./schemas/mch/Create_MCH_English_basic_tables.sql /tmp/ddl.sql
+#EXPOSE 3306/tcp
+#ENV MYSQL_ROOT_PASSWORD=password
 RUN cat /tmp/settings.sql /tmp/ddl.sql > /docker-entrypoint-initdb.d/3.sql
