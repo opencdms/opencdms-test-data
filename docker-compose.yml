@@ -62,7 +62,7 @@ services:
       dockerfile: ./docker/Dockerfile.clide
     container_name: clide
     ports:
-      - "35432:5432"
+      - "35433:5432"
     environment:
       - POSTGRES_PASSWORD=password
     networks:
@@ -115,7 +115,7 @@ services:
       dockerfile: ./docker/Dockerfile.wmdr
     container_name: wmdr
     ports:
-      - "35433:5432"
+      - "35434:5432"
     environment:
       - POSTGRES_PASSWORD=password
     networks:
