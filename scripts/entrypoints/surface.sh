@@ -1,0 +1,1 @@
+PGPASSWORD=password psql -U postgres postgres -f /schemas/surface_dump.sql
