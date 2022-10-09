@@ -14,7 +14,6 @@ services:
     networks:
       opencdms:
 
-
   # A PostgreSQL instance containing schemas from CDMSs that use PostgreSQL (currently clide and wmdr)
   postgresql:
     build:
@@ -27,7 +26,6 @@ services:
       - POSTGRES_PASSWORD=password
     networks:
       opencdms:
-
 
   # A MariaDB instance containing schemas from CDMSs that use MySQL/MariaDB (currently climsoft-4.1.1 and mch-english)
   mysql:
@@ -62,7 +60,7 @@ services:
       dockerfile: ./docker/Dockerfile.clide
     container_name: clide
     ports:
-      - "35432:5432"
+      - "35433:5432"
     environment:
       - POSTGRES_PASSWORD=password
     networks:
@@ -115,7 +113,7 @@ services:
       dockerfile: ./docker/Dockerfile.wmdr
     container_name: wmdr
     ports:
-      - "35433:5432"
+      - "35434:5432"
     environment:
       - POSTGRES_PASSWORD=password
     networks:
