@@ -19,7 +19,10 @@ There are three ways to test OpenCDMS with a database:
    ---
    
    1. **opencdms-db:** This is an empty TimescaleDB/PostGIS instance for deploying schemas for multiple supported CDMSs. This is currently empty.
-   2. **postgresql:** This is a PostgreSQL instance containing schemas for CDMSs that use PostgreSQL. Among the supported CDMSs, CliDE and WMDR use
+
+   ---
+
+   3. **postgresql:** This is a PostgreSQL instance containing schemas for CDMSs that use PostgreSQL. Among the supported CDMSs, CliDE and WMDR use
    PostgreSQL. 
    3. **mysql:** This is a MySQL instance containing schemas for CDMSs that use MySQL. Among supported CDMSs, Climsoft and MCH use MySQL.
    4. **oracle:** This is an Oracle Express Edition instance containing schemas from CDMSs that use Oracle. Among supported CDMSs, Midas uses Oracle.
@@ -32,9 +35,11 @@ There are three ways to test OpenCDMS with a database:
    8. **midas:** This is an Oracle Express Edition instance containing schemas from Midas which is comparable to how Midas is used in production.
    9. **wmdr:** This is a TimescaleDB/PostGIS instance containing WMDR schema which is comparable to how WMDR is used in production.
 
-    ---
+   ---
 
-   These services could be divided into **3 groups** depending on how they should be used. 
+   ### Service Groups
+
+   These services are divided into **3 groups** depending on how they are used:
    - **Group 1 - An OpenCDMS database** - `opencdms-db` is meant to be used for any CDMS that is supported by OpenCDMS. A public release of `pyopencdms` package should be able to handle any operation for any supported CDMS using this instance only.
    - **Group 2 - A Postgres/MySQL/Oracle-specific database** - `postgresql`, `mysql`, `oracle` should be used when you want to use the same database technology
    that is used by respective CDMS in production. We have created `Dockerfile`s for these services in `docker/groups` with instructions to create the same table structure for respective CDMSs as used in production.
