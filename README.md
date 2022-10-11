@@ -40,7 +40,7 @@ There are three ways to test OpenCDMS with a database:
    that is used by respective CDMS in production. We have created `Dockerfile`s for these services in `docker/groups` with instructions to create the same table structure for respective CDMSs as used in production.
    - **Group 3 - A CDMS-specific database** - `clide`, `climsoft-4.1.1`, `mch-english`, `midas`, `wmdr` are the dedicated instances for respective CDMS. If you want to instantiate a specific CDMS, you should use one of these services.
    
-   **Port Mapping**
+   ### Port Mapping
    
    Port numbers have a group number (see above) prepended to the default port number. This allows developers to quickly identify which group the database server belongs to and also avoids clashes with any existing database servers running on the default ports.
    
