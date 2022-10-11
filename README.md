@@ -34,25 +34,27 @@ There are three ways to test OpenCDMS with a database:
 
     ---
 
-   These services could be divided into 3 groups depending on how they should be used. 
-   - `opencdms-db` is meant to be used for any CDMS that is supported by OpenCDMS. A public release of `pyopencdms` package should be able to handle any operation for any supported CDMS using this instance only.
-   - `postgresql`, `mysql`, `oracle` should be used when you want to use the same database technology
+   These services could be divided into **3 groups** depending on how they should be used. 
+   - **Group 1 - An OpenCDMS database** - `opencdms-db` is meant to be used for any CDMS that is supported by OpenCDMS. A public release of `pyopencdms` package should be able to handle any operation for any supported CDMS using this instance only.
+   - **Group 2 - A Postgres/MySQL/Oracle-specific database** - `postgresql`, `mysql`, `oracle` should be used when you want to use the same database technology
    that is used by respective CDMS in production. We have created `Dockerfile`s for these services in `docker/groups` with instructions to create the same table structure for respective CDMSs as used in production.
-   - `clide`, `climsoft-4.1.1`, `mch-english`, `midas`, `wmdr` are the dedicated instances for respective CDMS. If you want to instantiate a specific CDMS, you should use one of these services.
+   - **Group 3 - A CDMS-specific database** - `clide`, `climsoft-4.1.1`, `mch-english`, `midas`, `wmdr` are the dedicated instances for respective CDMS. If you want to instantiate a specific CDMS, you should use one of these services.
    
    **Port Mapping**
    
+   Port numbers have a group number (see above) prepended to the default port number. This allows developers to quickly identify which group the database server belongs to and also avoids clashes with any existing database servers running on the default ports.
+   
    | Service | Port |
    |---------|------|
-   | opencdms-db | 15432 |
-   | postgresql | 25432 |
-   | mysql | 23306 |
-   | oracle | 21521 |
-   | clide | 35432 |
+   | opencdms-db | **1**5432 |
+   | postgresql | **2**5432 |
+   | mysql | **2**3306 |
+   | oracle | **2**1521 |
+   | clide | **3**5432 |
    | climsoft-4.1.1 | 3308 |
    | mch-english | 3306 |
-   | midas | 31521 |
-   | wmdr | 35433 |
+   | midas | **3**1521 |
+   | wmdr | **3**5433 |
    
 
 2. Testing with a single database technology (standard)
