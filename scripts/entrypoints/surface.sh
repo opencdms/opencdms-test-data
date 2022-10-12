@@ -1,4 +1,3 @@
-PGPASSWORD=password psql -h 127.0.0.1 -p 5432 -U postgres postgres -f /schemas/1.sql
-PGPASSWORD=password psql -h 127.0.0.1 -p 5432 -U postgres postgres -f /schemas/2.sql
-PGPASSWORD=password psql -h 127.0.0.1 -p 5432 -U postgres postgres -f /schemas/3.sql
-PGPASSWORD=password psql -h 127.0.0.1 -p 5432 -U postgres postgres -f /schemas/4.sql
+
+
+PGPASSWORD=password psql -U postgres -c "\COPY raw_data FROM '/raw_data/station_id_14_108.csv' WITH (FORMAT CSV, DELIMITER ',', HEADER, null \"NULL\");"
