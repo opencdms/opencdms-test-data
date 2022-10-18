@@ -1,5 +1,3 @@
-CREATE EXTENSION IF NOT EXISTS "timescaledb" CASCADE;
-
 INSERT INTO raw_data (created_at,updated_at,datetime,measured,consisted,qc_range_description,qc_step_description,qc_persist_description,manual_flag,qc_persist_quality_flag,qc_range_quality_flag,qc_step_quality_flag,quality_flag,station_id,variable_id,observation_flag_id,is_daily,remarks,observer,code,ml_flag) VALUES
 	 ('2016-04-21 11:12:42.328+02','2020-05-31 02:37:42.878818+02','2016-04-21 10:55:00+02',1011.0,NULL,NULL,NULL,NULL,NULL,NULL,4,4,4,108,60,NULL,false,NULL,NULL,NULL,1),
 	 ('2016-04-21 11:12:42.329+02','2020-05-31 02:37:42.878818+02','2016-04-21 11:00:00+02',1011.0,NULL,NULL,NULL,NULL,NULL,NULL,4,4,4,108,60,NULL,false,NULL,NULL,NULL,1),

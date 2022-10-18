@@ -258,13 +258,7 @@ CREATE TABLE IF NOT EXISTS public.raw_data (
 CREATE INDEX raw_data_datetime_idx1 ON public.raw_data USING btree (datetime DESC);
 CREATE UNIQUE INDEX raw_data_datetime_station_id_variable_id_uidx ON public.raw_data USING btree (datetime, station_id, variable_id);
 
--- Table Triggers
-
-create trigger ts_insert_blocker before
-insert
-    on
-    public.raw_data for each row execute function _timescaledb_internal.insert_blocker();
-
+SELECT create_hypertable('public.raw_data','datetime');
 
 -- public.spatial_ref_sys definition
 
