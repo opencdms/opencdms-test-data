@@ -1,13 +1,13 @@
 # This is a test workflow for opencdms-test-data
 name: tests
 # Controls when the workflow will run
-on:
+on: [push]
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  # workflow_dispatch:
 jobs:
   matrix-setup:
     strategy:
@@ -21,8 +21,10 @@ jobs:
         shell: cmd
         run: git config --global core.longpaths true
       - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.py-version }}
+        uses: actions/setup-python@v2
         with:
-          python-version: ${{matrix.py-version}}
+            python-version: ${{ matrix.py-version }}
 
       # Runs a single command using the runners shell
       - name: Installs necessary dependencies
