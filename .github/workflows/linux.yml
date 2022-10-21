@@ -1,0 +1,52 @@
+# This is a test workflow for opencdms-test-data
+
+name: tests
+
+# Controls when the workflow will run
+on: [push]
+  workflow_dispatch:
+
+jobs:
+  matrix-setup:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        py-version: ['3.7','3.8','3.9','3.10','3.11']
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - name: Support longpaths
+        if: ${{matrix.os == 'windows-latest'}}
+        shell: cmd
+        run: git config --global core.longpaths true
+      - uses: actions/checkout@v3
+        with:
+          python-version: ${{matrix.py-version}}
+
+      # Runs a single command using the runners shell
+      - name: Installs needed dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install libpq-dev
+          sudo apt-get install build-essential
+      - name: Installs python requirements
+        run: pip3 install -r requirements_dev.txt
+
+      - name: Set env file for linux shell
+        run: |
+           touch .env
+           cp .env.sample .env
+      # Runs a set of commands using the runners shell
+      - name: Setup for test
+        run: |
+          sudo chmod 666 /var/run/docker.sock
+          docker-compose up -d
+          python -c "import time; time.sleep(300)"
+
+      - uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .env
+      - name: Test and Tear down
+        run: |
+          pytest tests
+          docker-compose down
