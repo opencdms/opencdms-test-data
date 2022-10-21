@@ -33,12 +33,14 @@ jobs:
         run: |
           sudo chmod 666 /var/run/docker.sock
           docker-compose up -d
-          python -c "import time; time.sleep(300)"
+
+      - name: Wait for  containers to be connection ready
+        run: python -c "import time; time.sleep(300)"
 
       - uses: c-py/action-dotenv-to-setenv@v2
         with:
           env-file: .env
       - name: Test and Tear down
         run: |
-          pytest tests -vvvxxss
+          pytest tests 
           docker-compose down
