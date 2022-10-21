@@ -1,11 +1,7 @@
 # This is a test workflow for opencdms-test-data
-
 name: tests
-
 # Controls when the workflow will run
 on: [push]
-  workflow_dispatch:
-
 jobs:
   matrix-setup:
     strategy:
