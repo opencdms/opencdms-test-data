@@ -40,5 +40,5 @@ jobs:
           env-file: .env
       - name: Test and Tear down
         run: |
-          pytest tests
+          pytest tests -vvvxxss
           docker-compose down
