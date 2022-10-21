@@ -40,36 +40,36 @@ The table below shows that data is available for all datasets simulateously duri
 
 
 [rdr]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldr]: /badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldr91]: /badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-rain-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1991.csv
+[ldr]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[ldr91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-rain-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1991.csv
 
 [rdt]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldt]: /badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldt91]: /badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-temperature-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1991.csv
+[ldt]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[ldt91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-temperature-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1991.csv
 
 [rdw]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-daily-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldw]: /badc/ukmo-midas-open/data/uk-daily-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[ldw91]: /badc/ukmo-midas-open/data/uk-daily-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-weather-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[ldw]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[ldw91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-weather-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 [rhr]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-hourly-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lhr]: /badc/ukmo-midas-open/data/uk-hourly-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lhr91]: /badc/ukmo-midas-open/data/uk-hourly-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-hourly-rain-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[lhr]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-hourly-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[lhr91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-hourly-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-hourly-rain-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 [rhw]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-hourly-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lhw]: /badc/ukmo-midas-open/data/uk-hourly-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lhw91]: /badc/ukmo-midas-open/data/uk-hourly-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-hourly-weather-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[lhw]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-hourly-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[lhw91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-hourly-weather-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-hourly-weather-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 [rmw]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-mean-wind-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lmw]: /badc/ukmo-midas-open/data/uk-mean-wind-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lmw91]: /badc/ukmo-midas-open/data/uk-mean-wind-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-mean-wind-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[lmw]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-mean-wind-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[lmw91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-mean-wind-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-mean-wind-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 [rsr]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-radiation-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lsr]: /badc/ukmo-midas-open/data/uk-radiation-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/ 
-[lsr91]: /badc/ukmo-midas-open/data/uk-radiation-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-radiation-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[lsr]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-radiation-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/ 
+[lsr91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-radiation-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-radiation-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 [rst]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-soil-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lst]: /badc/ukmo-midas-open/data/uk-soil-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-[lst91]: /badc/ukmo-midas-open/data/uk-soil-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-soil-temperature-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
+[lst]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-soil-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[lst91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-soil-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-soil-temperature-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1995.csv
 
 <!-- Scripting download...
 
