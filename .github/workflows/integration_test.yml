@@ -2,7 +2,6 @@
 name: tests
 # Controls when the workflow will run
 on: [push]
-
 jobs:
   matrix-setup:
     strategy:
