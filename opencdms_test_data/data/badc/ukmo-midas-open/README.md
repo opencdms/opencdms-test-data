@@ -40,7 +40,7 @@ The table below shows that data is available for all datasets simulateously duri
 
 
 [rdr]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
-ldr]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
+[ldr]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
 [ldr91]: /opencdms_test_data/data/badc/ukmo-midas-open/data/uk-daily-rain-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/midas-open_uk-daily-rain-obs_dv-201908_berkshire_00838_bracknell-beaufort-park_qcv-1_1991.csv
 
 [rdt]: http://dap.ceda.ac.uk/badc/ukmo-midas-open/data/uk-daily-temperature-obs/dataset-version-201908/berkshire/00838_bracknell-beaufort-park/qc-version-1/
