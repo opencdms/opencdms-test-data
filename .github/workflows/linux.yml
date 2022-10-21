@@ -35,7 +35,7 @@ jobs:
           docker-compose up -d
 
       - name: Wait for  containers to be connection ready
-        run: python -c "import time; time.sleep(300)"
+        run:  sleep 300
 
       - uses: c-py/action-dotenv-to-setenv@v2
         with:
