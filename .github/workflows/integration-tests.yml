@@ -43,7 +43,7 @@ jobs:
         shell: bash
         run: cp .env.sample .env
       - name: Run docker-compose
-        run: docker-compose up -d clide climsoft mch midas surface
+        run: docker-compose up -d clide climsoft-4.1.1 mch-english midas surface
       - name: Runs tests
         run: |
           sleep 60
