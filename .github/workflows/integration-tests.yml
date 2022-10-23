@@ -1,19 +1,16 @@
-# This is a test workflow for opencdms-test-data
-name: tests
-# Controls when the workflow will run
+name: integration testsn
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
   workflow_dispatch:
 jobs:
   matrix-setup:
     strategy:
       matrix:
-        os: [windows-latest,macos-latest,ubuntu-latest]
-        py-version: ['3.7','3.8','3.9','3.10','3.11']
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        py-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
     runs-on: ${{matrix.os}}
     steps:
       - name: Support longpaths
@@ -24,7 +21,6 @@ jobs:
         with:
           python-version: ${{matrix.py-version}}
 
-      # Runs a single command using the runners shell
       - name: Installs necessary dependencies
         run: pip3 install -r requirements_dev.txt
 
@@ -32,12 +28,14 @@ jobs:
         if: ${{matrix.os == 'windows-latest'}}
         shell: cmd
         run: copy .env.sample .env
-      
+
       - name: Set env file for linux shell
-        if: ${{matrix.os == 'ubuntu-latest'}} || ${{matrix.os == 'macos-latest'}} 
+        if: ${{matrix.os == 'ubuntu-latest'}} || ${{matrix.os == 'macos-latest'}}
         shell: bash
         run: cp .env.sample .env
-        
-      # Runs a set of commands using the runners shell
+      - name: Run docker-compose
+        run: docker-compose up -d postgresql mysql surface
       - name: Runs tests
-        run: pytest tests
+        run: |
+          sleep 30
+          pytest tests
