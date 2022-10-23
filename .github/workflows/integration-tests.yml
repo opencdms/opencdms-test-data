@@ -30,6 +30,7 @@ jobs:
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install mysql
           pip3 install --upgrade cython
+          pip3 install numpy --no-use-pep517
 
       - name: Installs necessary dependencies
         run: pip3 install -r requirements_dev.txt
