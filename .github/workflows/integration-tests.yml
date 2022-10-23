@@ -45,5 +45,5 @@ jobs:
         run: docker-compose up -d postgresql mysql surface
       - name: Runs tests
         run: |
-          sleep 30
+          sleep 60
           pytest tests
