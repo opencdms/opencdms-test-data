@@ -21,6 +21,13 @@ jobs:
         with:
           python-version: ${{matrix.py-version}}
 
+      - name: Install mysql on mac
+        if: ${{matrix.os == 'macos-latest'}}
+        shell: bash
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install mysql
+
       - name: Installs necessary dependencies
         run: pip3 install -r requirements_dev.txt
 
