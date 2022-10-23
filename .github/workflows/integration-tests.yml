@@ -27,6 +27,7 @@ jobs:
         run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
           brew install mysql
+          pip3 install --upgrade cython
 
       - name: Installs necessary dependencies
         run: pip3 install -r requirements_dev.txt
