@@ -1,5 +1,3 @@
-use mysql;
-
 CREATE TABLE Codes(
     Codee char(10) NOT NULL default "",
     Message char(150),

@@ -44,3 +44,15 @@ def get_mch_english_connection_string(port_override: str = None) -> str:
         db_name=os.getenv("MCH_DB_NAME")
     )
 
+
+def get_midas_connection_string(port_override: str = None) -> str:
+    return get_connection_string(
+        engine="postgresql",
+        driver="psycopg2",
+        user="postgres",
+        password="password",
+        host="127.0.0.1",
+        port=os.getenv("MIDAS_PORT") if port_override is None else port_override,
+        db_name=os.getenv("MIDAS_DB_NAME")
+    )
+
