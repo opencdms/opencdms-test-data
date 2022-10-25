@@ -1,0 +1,58 @@
+name: integration tests
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+  workflow_dispatch:
+jobs:
+  matrix-setup:
+    strategy:
+      matrix:
+#        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [ubuntu-latest]
+        py-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - name: Support longpaths
+        if: ${{matrix.os == 'windows-latest'}}
+        shell: cmd
+        run: git config --global core.longpaths true
+
+      - uses: actions/checkout@v3
+        with:
+          python-version: ${{matrix.py-version}}
+
+      - name: Install mysql on mac
+        if: ${{matrix.os == 'macos-latest'}}
+        shell: bash
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          brew install mysql
+          pip3 install --upgrade cython
+          pip3 install numpy --no-use-pep517
+
+      - name: Installs necessary dependencies
+        run: pip3 install -r requirements_dev.txt
+
+      - name: Set env file for windows
+        if: ${{matrix.os == 'windows-latest'}}
+        shell: cmd
+        run: copy .env.sample .env
+
+      - name: Set env file for linux shell
+        if: ${{matrix.os == 'ubuntu-latest'}} || ${{matrix.os == 'macos-latest'}}
+        shell: bash
+        run: cp .env.sample .env
+
+      - name: Run docker-compose
+        run: docker-compose up -d clide climsoft-4.1.1 mch-english midas surface
+
+      - name: Runs tests
+        run: |
+          sleep 45
+          pytest tests
+          sleep 5
+          docker-compose down
