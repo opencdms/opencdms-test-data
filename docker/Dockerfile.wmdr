@@ -1,3 +1,2 @@
 FROM timescale/timescaledb-postgis:latest-pg12
-# COPY ./schemas/wmdr/core_tables.sql /docker-entrypoint-initdb.d/1.sql
 COPY ./schemas/wmdr/all_tables.sql /docker-entrypoint-initdb.d/1.sql
