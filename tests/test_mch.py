@@ -6,14 +6,13 @@ from sqlalchemy.orm import sessionmaker
 from opencdms.models.mch import english as mch_english
 from config import get_mch_english_connection_string
 
-DB_URL = get_mch_english_connection_string(port_override=os.getenv("MYSQL_PORT"))
+DB_URL = get_mch_english_connection_string(
+    port_override=os.getenv("MCH_ENGLISH_PORT")
+)
 
 db_engine = create_engine(DB_URL)
 
-station_data = dict(
-    Station='TEST',
-    StationName='Test Station'
-)
+station_data = dict(Station="TEST", StationName="Test Station")
 
 
 @pytest.fixture
@@ -27,20 +26,20 @@ def db_session():
 def setup_module(module):
     with db_engine.connect() as connection:
         trans = connection.begin()
-        connection.execute('SET FOREIGN_KEY_CHECKS = 0;')
+        connection.execute("SET FOREIGN_KEY_CHECKS = 0;")
         for table in mch_english.metadata.sorted_tables:
             connection.execute(table.delete())
-        connection.execute('SET FOREIGN_KEY_CHECKS = 1;')
+        connection.execute("SET FOREIGN_KEY_CHECKS = 1;")
         trans.commit()
 
 
 def teardown_module(module):
     with db_engine.connect() as connection:
         trans = connection.begin()
-        connection.execute('SET FOREIGN_KEY_CHECKS = 0;')
+        connection.execute("SET FOREIGN_KEY_CHECKS = 0;")
         for table in mch_english.metadata.sorted_tables:
             connection.execute(table.delete())
-        connection.execute('SET FOREIGN_KEY_CHECKS = 1;')
+        connection.execute("SET FOREIGN_KEY_CHECKS = 1;")
         trans.commit()
 
 
@@ -50,7 +49,7 @@ def test_should_create_a_station(db_session):
     db_session.add(station)
     db_session.commit()
 
-    assert station.Station == station_data['Station']
+    assert station.Station == station_data["Station"]
 
 
 @pytest.mark.order(401)
@@ -63,28 +62,36 @@ def test_should_read_all_stations(db_session):
 
 @pytest.mark.order(402)
 def test_should_return_a_single_station(db_session):
-    station = db_session.query(mch_english.Station).get(station_data['Station'])
+    station = db_session.query(mch_english.Station).get(
+        station_data["Station"]
+    )
 
-    assert station.Station == station_data['Station']
+    assert station.Station == station_data["Station"]
 
 
 @pytest.mark.order(403)
 def test_should_update_station(db_session):
-    db_session.query(mch_english.Station).filter_by(Station=station_data['Station']).update({'StationName': 'Updated Station Name'})
+    db_session.query(mch_english.Station).filter_by(
+        Station=station_data["Station"]
+    ).update({"StationName": "Updated Station Name"})
     db_session.commit()
 
-    updated_station = db_session.query(mch_english.Station).get(station_data['Station'])
+    updated_station = db_session.query(mch_english.Station).get(
+        station_data["Station"]
+    )
 
-    assert updated_station.StationName == 'Updated Station Name'
+    assert updated_station.StationName == "Updated Station Name"
 
 
 @pytest.mark.order(404)
 def test_should_delete_station(db_session):
-    db_session.query(mch_english.Station).filter_by(Station=station_data['Station']).delete()
+    db_session.query(mch_english.Station).filter_by(
+        Station=station_data["Station"]
+    ).delete()
     db_session.commit()
 
-    deleted_station = db_session.query(mch_english.Station).get(station_data['Station'])
+    deleted_station = db_session.query(mch_english.Station).get(
+        station_data["Station"]
+    )
 
     assert deleted_station is None
-
-

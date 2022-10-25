@@ -1,6 +1,6 @@
 ## OpenCDMS test database
 
-See [data/opencdms/](https://github.com/opencdms/opencdms-test-data/tree/main/opencdms_test_data/data/opencdms) for the initial shared test database.
+See [data/opencdms/](https://github.com/opencdms/opencdms_test_data/tree/main/opencdms_test_data/data/opencdms) for the initial shared test database.
 
 ## OpenCDMS supported systems
 
