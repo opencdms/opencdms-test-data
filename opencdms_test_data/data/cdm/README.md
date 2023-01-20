@@ -9,7 +9,8 @@ Data sets:
 License: https://eccc-msc.github.io/open-data/licence/readme_en/
 
 Data can be imported using the following (using psql)
-``
+
+```bash
 psql -U opencdms -d opencdms << !
 \COPY cdm.observation_type FROM 'observation_type.csv' WITH CSV HEADER DELIMITER AS '|' NULL AS 'NA';
 \COPY cdm.observed_property FROM 'observed_property.csv' WITH CSV HEADER DELIMITER AS '|' NULL AS 'NA';
@@ -20,5 +21,6 @@ psql -U opencdms -d opencdms << !
 \COPY cdm.source FROM 'source.csv' WITH CSV HEADER DELIMITER AS '|' NULL AS 'NA';
 \COPY cdm.observations FROM 'CA_6014353_1994.csv' WITH CSV HEADER DELIMITER AS '|' NULL AS 'NA';
 !
-``
+```
+
 etc.
