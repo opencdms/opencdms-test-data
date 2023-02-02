@@ -2,11 +2,11 @@ version: "3"
 
 services:
   # An empty TimescaleDB / PostGIS instance for deploying schemas from multiple supported CDMSs (currently empty)
-  opencdms-db:
+  opencdmsdb:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    container_name: opencdms-db
+    container_name: opencdmsdb
     ports:
       - "35432:5432"
     environment:
