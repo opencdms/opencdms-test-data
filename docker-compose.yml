@@ -14,7 +14,7 @@ services:
     networks:
       opencdms:
 
-  # A PostgreSQL instance containing schemas from CDMSs that use PostgreSQL (currently clide and wmdr)
+  # A PostgreSQL instance containing schemas from CDMSs that use PostgreSQL (currently clide and opencdmsdb)
   postgresql:
     build:
       context: .
@@ -106,11 +106,11 @@ services:
     networks:
       opencdms:
 
-  # A TimescaleDB / PostGIS instance containing the wmdr schema
-  wmdr:
+  # A TimescaleDB / PostGIS instance containing the opencdmsdb schema
+  opencdmsdb:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.wmdr
+      dockerfile: ./docker/Dockerfile.opencdmsdb
     container_name: wmdr
     ports:
       - "35434:5432"
