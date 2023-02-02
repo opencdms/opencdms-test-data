@@ -111,7 +111,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile.opencdmsdb
-    container_name: wmdr
+    container_name: opencdmsdb
     ports:
       - "35434:5432"
     environment:
