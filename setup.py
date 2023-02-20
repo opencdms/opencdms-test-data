@@ -20,7 +20,9 @@ setup(
     packages=find_packages(include=["opencdms_test_data", "opencdms_test_data.*"]),
     include_package_data=True,
     zip_safe=False,
-    package_data={'opencdms_test_data': ["conf/*", "docker/**/*", "docker/*",  "schemas/**/**/**/*", "schemas/*", "scripts/**/*", "*.yml","config.py"]},
+    package_data={'opencdms_test_data': ["conf/*", "docker/**/*", "docker/*", 
+                                "schemas/**/**/**/*", "schemas/**/*", "schemas/**/**/*","schemas/*",
+                                 "scripts/**/*", "scripts/*", "*.yml","config.py"]},
     
 )
 
