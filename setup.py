@@ -22,3 +22,4 @@ setup(
     zip_safe=False,
     package_data={'': ["*.csv"]}
 )
+
