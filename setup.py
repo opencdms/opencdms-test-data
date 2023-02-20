@@ -10,7 +10,7 @@ setup(
     description='OpenCDMS test data as package.',
     entry_points={
         "console_scripts": [
-            "opencdms-test-data=cli:main",
+            "opencdms-test-data=opencdms_test_data.cli:main",
         ],
     },
     install_requires=requirements,
@@ -20,6 +20,10 @@ setup(
     packages=find_packages(include=["opencdms_test_data", "opencdms_test_data.*"]),
     include_package_data=True,
     zip_safe=False,
-    package_data={'': ["*"]}
+    package_data={'': ["*"]},
+    data_files=[
+        ("conf",['conf/*']),
+        ("docker",['docker/*'])
+    ]
 )
 
