@@ -20,6 +20,6 @@ setup(
     packages=find_packages(include=["opencdms_test_data", "opencdms_test_data.*"]),
     include_package_data=True,
     zip_safe=False,
-    package_data={'': ["*.csv"]}
+    package_data={'': ["*"]}
 )
 
