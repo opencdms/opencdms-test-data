@@ -17,7 +17,7 @@ setup(
     author='OpenCDMS',
     author_email='info@opencdms.org',
     url='https://github.com/opencdms/opencdms-test-data',
-    packages=find_packages(),
+    packages=find_packages(include=["opencdms_test_data", "opencdms_test_data.*"]),
     include_package_data=True,
     zip_safe=False,
     package_data={'': ["*.csv"]}
