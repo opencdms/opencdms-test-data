@@ -28,7 +28,23 @@ This project exposes cli commands for launching the different databases.
 2. `opencdms-test-data stopdb`: Stops all containers
 3. `opencdms-test-data startdb --containers containerName,AnotherContainerName`: Starts one or more number of specified containers
 
+## Available containers and service ports
 
+```
+        "postgres": 5432,
+        "mariadb": 3306,
+        "opencdms-db": 35432,
+        "postgresql": 25432,
+        "mysql": 23306,
+        "oracle": 21521,
+        "clide": 35433,
+        "climsoft-4.1.1": 33308,
+        "mch-english": 33306,
+        "midas": 31521,        
+        "wmdr": 35434,
+        "surface": 45432
+
+```
 
 
 
