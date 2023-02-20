@@ -2,5 +2,5 @@ recursive-include opencdms_test_data/data/ *
 recursive-include opencdms_test_data/conf/ *
 recursive-include opencdms_test_data/docker/ *
 recursive-include opencdms_test_data/schemas/ *
-include opencdms_test_data/ *.yml
+include opencdms_test_data/ docker-compose.yml
 include opencdms_test_data/ *.py
