@@ -22,8 +22,8 @@ setup(
     zip_safe=False,
     package_data={'': ["*"]},
     data_files=[
-        ("conf",['conf/*']),
-        ("docker",['docker/*'])
+        ("opencdms_test_data/conf",['conf/*']),
+        ("opencdms_test_data/docker",['docker/*'])
     ]
 )
 
