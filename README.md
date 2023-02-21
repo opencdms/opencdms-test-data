@@ -2,6 +2,53 @@
 
 See [data/opencdms/](https://github.com/opencdms/opencdms_test_data/tree/main/opencdms_test_data/data/opencdms) for the initial shared test database.
 
+
+## Installation guide
+
+This test data is mearnt to be installed into your pyopencdms for development purposes.
+To install this package add it to the requirements_dev.txt file in the pyopencdms project like so:
+
+requirements_dev.txt
+
+```
+opencdms-test-data@git+https://github.com/opencdms/opencdms-test-data.git@main
+```
+
+## Prerequisites
+
+To be able to launch the different databases, it requires that you have:
+1. Docker and docker-compose installed in your machine. 
+2. Service ports of the different database available.
+
+## CLI commands 
+
+This project exposes cli commands for launching the different databases.
+
+1. `opencdms-test-data startdb` : Starts all the database containers.
+2. `opencdms-test-data stopdb`: Stops all containers
+3. `opencdms-test-data startdb --containers containerName,AnotherContainerName`: Starts one or more number of specified containers
+
+## Available containers and service ports
+
+```
+        "postgres": 5432,
+        "mariadb": 3306,
+        "opencdms-db": 35432,
+        "postgresql": 25432,
+        "mysql": 23306,
+        "oracle": 21521,
+        "clide": 35433,
+        "climsoft-4.1.1": 33308,
+        "mch-english": 33306,
+        "midas": 31521,        
+        "wmdr": 35434,
+        "surface": 45432
+
+```
+
+
+
+
 ## OpenCDMS supported systems
 
 This repository contains data and information for testing OpenCDMS and supported systems.
