@@ -1,4 +1,4 @@
-# Example data in v0.1.0 of he data model 
+# Example data in v0.1.0 of the climate data model 
 
 The data model used in the OpenCDMS project is based on that being developed under the 
 WMO Task Team - Climate Data Model. This data model is based on the draft OGC OMS standard and uses the terminology from that standard:
@@ -67,7 +67,7 @@ have been included in the hosts data file (hosts.csv). This contains data for 10
 If the map does not render correctly (due to issues with rendering of geojson maps in Github) the data have been included as a [geojson file](hosts.geojson).
 This is best viewed using a tool such as geojson tools, e.g.:
 
-[https://geojson.tools/#url=https://raw.githubusercontent.com/opencdms/opencdms-test-data/v0.1.0-dev_model_updates/opencdms_test_data/data/cdm/hosts.geojson](https://geojson.tools/#url=https://raw.githubusercontent.com/opencdms/opencdms-test-data/v0.1.0-dev_model_updates/opencdms_test_data/data/cdm/hosts.geojson)
+[https://geojson.tools/#url=https://raw.githubusercontent.com/opencdms/opencdms-test-data/main/opencdms_test_data/data/cdm/hosts.geojson](https://geojson.tools/#url=https://raw.githubusercontent.com/opencdms/opencdms-test-data/main/opencdms_test_data/data/cdm/hosts.geojson)
 
 # Data source / links
 
