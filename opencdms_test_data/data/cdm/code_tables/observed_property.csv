@@ -1,0 +1,13 @@
+id|short_name|standard_name|units|description|link
+0|temp|air_temperature|K|temperature of air at specified height above surface|NA
+1|dpt|dew_point_temperature|K|dew point temperature of air at specified height above surface|NA
+2|rh|relative_humidity|%|relative humidity of air at specified height above surface|NA
+3|p|air_pressure|pa|air pressure at specified height|NA
+4|slp|air_pressure_at_mean_sea_level|pa|air pressure reduced to mean sea level|NA
+5|vis|visibility_in_air|m||NA
+6|ws|wind_speed|m s-1||NA
+7|wd|wind_from_direction|degrees|the direction from which the wind is blowing|NA
+8|wbt|wet_bulb_temperature|K||NA
+9|humidex||1||NA
+10|precip||mm||NA
+11|windchill||||NA

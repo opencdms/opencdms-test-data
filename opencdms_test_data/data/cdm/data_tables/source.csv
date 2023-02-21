@@ -1,0 +1,2 @@
+id|source_type|name|links|processor
+1|1|Environment and Climate Change Canada, Hourly Climate Observations|[{"rel": "canonical", "href": "https://api.weather.gc.ca/collections/climate-hourly", "type":"text/html", "title":"API endpoint"},{"rel": "convertedfrom", "href": "https://api.weather.gc.ca/collections/climate-hourly", "type":"text/html", "title":"API endpoint"}]|extract_obs.R
