@@ -70,7 +70,7 @@ def start_db(containers: str):
             databases = " ".join(containers_started)
             start_command = f"docker-compose -f {docker_compose_file} up -d {databases}"
         else:
-            exit(1)
+            exit(0)
     
     
     click.echo('starting databases....')
