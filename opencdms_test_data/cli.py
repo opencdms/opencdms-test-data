@@ -27,7 +27,7 @@ def start_db(containers: str):
     container_port = {
         "postgres": 5432,
         "mariadb": 3306,
-        "opencdms-db": 35432,
+        "opencdmsdb": 35432,
         "postgresql": 25432,
         "mysql": 23306,
         "oracle": 21521,
@@ -70,7 +70,7 @@ def start_db(containers: str):
             databases = " ".join(containers_started)
             start_command = f"docker-compose -f {docker_compose_file} up -d {databases}"
         else:
-            exit(1)
+            exit(0)
     
     
     click.echo('starting databases....')
